@@ -19,10 +19,14 @@ public class Terning {
     public int trill() {
         int kast = (int)Math.floor(Math.random()*6 + 1);
         sisteKast = kast;
+        totalKast++;
+
         if (kast == 6) {
             seksereTotalt++;
             sekserePaaRad++;
         } else sekserePaaRad = 0;
+
+        if (kast == 1) enereTotalt++;
         return kast;
     }
 

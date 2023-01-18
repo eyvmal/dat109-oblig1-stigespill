@@ -33,7 +33,6 @@ public class Main {
                     while(brett.getSpillerListe().size() < 4) {
                         brett.opprettDummy();
                     }
-                    break;
             } else
                 brett.opprettSpiller(navn);
         }
@@ -72,7 +71,7 @@ public class Main {
                         // Dropper å si hvem som er nestemann i køen. Mindre spam i konsoll
                         brett.setSimulering(true);
                         brett.trillNeste();
-                        Thread.sleep(333);
+                        Thread.sleep(50);
                     }
                     break;
             }
@@ -115,6 +114,8 @@ public class Main {
                     System.out.println("Antall kast stuck ved start: " + s1.getStuckVedStart());
                     System.out.println("Antall stiger: --");
                     System.out.println("Antall slanger: --");
+                    System.out.println("--- Log ---");
+                    s1.printPosisjonLog();
                     Brett.linje();
                     break;
                 case 2:
@@ -128,6 +129,8 @@ public class Main {
                     System.out.println("Antall kast stuck ved start: " + s2.getStuckVedStart());
                     System.out.println("Antall stiger: --");
                     System.out.println("Antall slanger: --");
+                    System.out.println("--- Log ---");
+                    s2.printPosisjonLog();
                     Brett.linje();
                     break;
                 case 3:
@@ -141,6 +144,8 @@ public class Main {
                     System.out.println("Antall kast stuck ved start: " + s3.getStuckVedStart());
                     System.out.println("Antall stiger: --");
                     System.out.println("Antall slanger: --");
+                    System.out.println("--- Log ---");
+                    s3.printPosisjonLog();
                     Brett.linje();
                     break;
                 case 4:
@@ -154,6 +159,8 @@ public class Main {
                     System.out.println("Antall kast stuck ved start: " + s4.getStuckVedStart());
                     System.out.println("Antall stiger: --");
                     System.out.println("Antall slanger: --");
+                    System.out.println("--- Log ---");
+                    s4.printPosisjonLog();
                     Brett.linje();
                     break;
             }

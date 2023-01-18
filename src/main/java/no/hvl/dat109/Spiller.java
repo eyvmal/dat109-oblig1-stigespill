@@ -52,4 +52,16 @@ public class Spiller {
     public void incStuckVedStart() {
         stuckVedStart++;
     }
+
+    public void printPosisjonLog() {
+       if (!posisjonLog.isEmpty()) {
+           String log = "[";
+           for (int i = 0; i < posisjonLog.size() - 1; i++) {
+               log += (posisjonLog.get(i) + 1) + ", ";
+           }
+           log += (posisjonLog.get(posisjonLog.size() - 1) + 1) + "]";
+
+           System.out.println(log);
+       }
+    }
 }

@@ -93,6 +93,7 @@ public class Brett {
                 System.out.println("Du kastet " + kast + ". Du trenger en 6er for å bli med i spillet igjen!");
                 spiller.incStuckVedStart();
                 hvemSinTur++;
+                return;
             }
         }
 
@@ -137,7 +138,8 @@ public class Brett {
         int nyPosisjon = spiller.getPosisjon() + terningResultat;
         if (nyPosisjon > 99) {
             nyPosisjon = 99 - (nyPosisjon%99);
-        } else spiller.setPosisjon(nyPosisjon);
+        }
+        spiller.setPosisjon(nyPosisjon);
     }
 
     // Fant ut denne var grei å ha i noen tilfeller.
@@ -185,7 +187,7 @@ public class Brett {
         System.out.println("-------------------------");
         System.out.println("Spillmeny:");
         System.out.println("1: Se denne menyen igjen");
-        System.out.println("2: Kast terning. " + spillerListe.get(0).getNavn() + " er neste til å kaste.");
+        System.out.println("2: Kast terning. " + spillerListe.get(hvemSinTur).getNavn() + " er neste til å kaste.");
         System.out.println("3: Vis brett");
         System.out.println("4: Avslutt spill");
         System.out.println("5: Simuler resten");
