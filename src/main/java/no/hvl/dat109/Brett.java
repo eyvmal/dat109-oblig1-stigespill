@@ -74,7 +74,7 @@ public class Brett {
         System.out.println("Spiller " + spillerListe.get(id).getNavn() + "(id: " + id + ")" + " har blitt opprettet!");
     }
     public void opprettDummy() { // For å hindre kodekrasj ved færre spillere
-        spillerListe.add(new Spiller(69, "dummy"));
+        spillerListe.add(new Spiller(69, "--"));
     }
 
     // Generell trille-metode -- Mulig den kan optimaliseres litt, men funker greit sånn her.
