@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class Brett {
 
-    private ArrayList<BrettRute> brett;
-    private int storrelse;
+    private final ArrayList<BrettRute> brett;
+    private final int storrelse;
 
-    private ArrayList<Spiller> spillerListe;
+    private final ArrayList<Spiller> spillerListe;
     private int antallSpillere;
     private int hvemSinTur;
     private boolean spill;
@@ -15,13 +15,13 @@ public class Brett {
 
     public Brett(int storrelse) {
         this.storrelse = storrelse;
-        spillerListe = new ArrayList<Spiller>();
+        spillerListe = new ArrayList<>();
         antallSpillere = 0;
         hvemSinTur = 0;
         spill = true;
         simulering = false;
 
-        brett = new ArrayList<BrettRute>(); // Oppretter et brett med ønsket antall ruter
+        brett = new ArrayList<>(); // Oppretter et brett med ønsket antall ruter
         for (int i = 1; i < storrelse + 1; i++) { // Gjør navnet finere ved å legge til 0er forran.
             String navn = "";
             if (i < 10) {
@@ -85,10 +85,8 @@ public class Brett {
         // Sjekker om spilleren er blitt sendt tilbake til start pga for mange 6ere
         if (spiller.getBackToStart()) {
             if (kast == 6) {        // Kaster de 6 slipper de fri og kan fortsette, men får ikke nytt kast
-                setpos(spiller.getId(), kast);
                 System.out.println("Du kastet 6 og kan fortsette å spille!");
                 spiller.setBackToStart(false);
-                return;
             } else {                // Kaster de noe annet enn 6, skjer ingen ting
                 System.out.println("Du kastet " + kast + ". Du trenger en 6er for å bli med i spillet igjen!");
                 spiller.incStuckVedStart();
@@ -127,7 +125,7 @@ public class Brett {
                     System.out.println(spillerListe.get(i).getNavn() + " har vunnet! Gratulerer!");
                     setSpill(false);
                 }
-            };
+            }
     }
 
     // Endrer posisjonen til en spiller, men sjekker også om de har overgått 100.
@@ -144,14 +142,10 @@ public class Brett {
 
     // Fant ut denne var grei å ha i noen tilfeller.
     public int getIdMedNavn(String navn) {
-        boolean funnet = false;
-        while (!funnet) {
-            for (int i = 0; i < spillerListe.size(); i++) {
-                if (spillerListe.get(i).getNavn().equals(navn)) {
-                    return i;
-                }
+        for (int i = 0; i < spillerListe.size(); i++) {
+            if (spillerListe.get(i).getNavn().equals(navn)) {
+                return i;
             }
-            return -1;
         }
         return -1;
     }
@@ -163,18 +157,9 @@ public class Brett {
     public boolean getSpill() {
         return spill;
     }
-    public ArrayList<BrettRute> getBrett() {
-        return brett;
-    }
-    public void setBrett(ArrayList<BrettRute> brett) {
-        this.brett = brett;
-    }
 
     public ArrayList<Spiller> getSpillerListe() {
         return spillerListe;
-    }
-    public void setSpillerListe(ArrayList<Spiller> spillerListe) {
-        this.spillerListe = spillerListe;
     }
     public void setSimulering(boolean verdi) {
         simulering = verdi;
@@ -187,7 +172,7 @@ public class Brett {
         System.out.println("-------------------------");
         System.out.println("Spillmeny:");
         System.out.println("1: Se denne menyen igjen");
-        System.out.println("2: Kast terning. " + spillerListe.get(hvemSinTur).getNavn() + " er neste til å kaste.");
+        System.out.println("2: Kast terning. " + spillerListe.get(hvemSinTur%antallSpillere).getNavn() + " er neste til å kaste.");
         System.out.println("3: Vis brett");
         System.out.println("4: Avslutt spill");
         System.out.println("5: Simuler resten");
