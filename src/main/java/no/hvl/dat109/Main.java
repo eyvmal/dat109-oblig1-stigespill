@@ -11,8 +11,7 @@ public class Main {
         brett.printBrett();
 
         // Registrering av spillere. Den vil automatisk avslutte hvis 4 spillere er registrert
-        brett.linje();
-        System.out.println("Skriv inn navn på spillere. Maks 4!");
+        System.out.println("Skriv inn navn på spillere. Tillatt med 2-4 spillere.");
         System.out.println("Skriv 'ferdig' når alle er registrert.");
 
         while(brett.getSpillerListe().size() < 4) {

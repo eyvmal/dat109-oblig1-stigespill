@@ -59,6 +59,15 @@ public class Brett {
                 i -= printRevers(i);
             }
         }
+        linje();
+        for (int i = 0; i < antallSpillere; i++) {
+            Spiller spiller = spillerListe.get(i);
+            System.out.println(spiller.getNavn() + " er i rute " + (spiller.getPosisjon() + 1));
+        }
+        linje();
+        printStiger();
+        printSlanger();
+        linje();
     }
 
     public int printRevers(int index) {
@@ -199,6 +208,25 @@ public class Brett {
     }
 
     // Utskrift-metoder
+    public void printStiger() {
+        System.out.print("Stiger: ");
+        for (int i = 0; i < brett.size(); i++) {
+            if (brett.get(i).erStige()) {
+                System.out.print(brett.get(i).getNr() + "->" + (brett.get(i).getStigeTil() + 1) + " ");
+            }
+        }
+        System.out.println();
+    }
+    public void printSlanger() {
+        System.out.print("Slanger: ");
+        for (int i = 0; i < brett.size(); i++) {
+            if (brett.get(i).erSlange()) {
+                System.out.print(brett.get(i).getNr() + "->" + (brett.get(i).getSlangeTil() + 1) + " ");
+            }
+        }
+        System.out.println();
+    }
+
     public static void linje() {
         System.out.println("-------------------------");
     }
