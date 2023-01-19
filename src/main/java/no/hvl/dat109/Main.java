@@ -16,6 +16,20 @@ public class Main {
         Brett brett = new Brett();
         brett.printBrett();
 
+        brett.lagStige(0, 10);
+        brett.lagStige(1, 11);
+        brett.lagStige(2, 12);
+        brett.lagStige(3, 13);
+        brett.lagStige(4, 14);
+        brett.lagStige(5, 15);
+
+        brett.lagSlange(16, 0);
+        brett.lagSlange(17, 0);
+        brett.lagSlange(18, 0);
+        brett.lagSlange(19, 0);
+        brett.lagSlange(20, 0);
+        brett.lagSlange(21, 0);
+
         // Registrering av spillere. Den vil automatisk avslutte hvis 4 spillere er registrert
         brett.linje();
         System.out.println("Skriv inn navn på spillere. Maks 4!");
@@ -114,8 +128,8 @@ public class Main {
                     System.out.println("--- Spiller ---");
                     System.out.println("Avslutningposisjon: " + (s1.getPosisjon() + 1));
                     System.out.println("Antall kast stuck ved start: " + s1.getStuckVedStart());
-                    System.out.println("Antall stiger: --");
-                    System.out.println("Antall slanger: --");
+                    System.out.println("Antall stiger: " + s1.getTerning().getStigerTotalt());
+                    System.out.println("Antall slanger: " + s1.getTerning().getSlangerTotalt());
                     System.out.println("--- Log ---");
                     s1.printPosisjonLog();
                     Brett.linje();
@@ -129,8 +143,8 @@ public class Main {
                     System.out.println("--- Spiller ---");
                     System.out.println("Avslutningposisjon: " + (s2.getPosisjon() + 1));
                     System.out.println("Antall kast stuck ved start: " + s2.getStuckVedStart());
-                    System.out.println("Antall stiger: --");
-                    System.out.println("Antall slanger: --");
+                    System.out.println("Antall stiger: " + s2.getTerning().getStigerTotalt());
+                    System.out.println("Antall slanger: " + s2.getTerning().getSlangerTotalt());
                     System.out.println("--- Log ---");
                     s2.printPosisjonLog();
                     Brett.linje();
@@ -144,8 +158,8 @@ public class Main {
                     System.out.println("--- Spiller ---");
                     System.out.println("Avslutningposisjon: " + (s3.getPosisjon() + 1));
                     System.out.println("Antall kast stuck ved start: " + s3.getStuckVedStart());
-                    System.out.println("Antall stiger: --");
-                    System.out.println("Antall slanger: --");
+                    System.out.println("Antall stiger: " + s3.getTerning().getStigerTotalt());
+                    System.out.println("Antall slanger: " + s3.getTerning().getSlangerTotalt());
                     System.out.println("--- Log ---");
                     s3.printPosisjonLog();
                     Brett.linje();
@@ -159,8 +173,8 @@ public class Main {
                     System.out.println("--- Spiller ---");
                     System.out.println("Avslutningposisjon: " + (s4.getPosisjon() + 1));
                     System.out.println("Antall kast stuck ved start: " + s4.getStuckVedStart());
-                    System.out.println("Antall stiger: --");
-                    System.out.println("Antall slanger: --");
+                    System.out.println("Antall stiger: " + s4.getTerning().getStigerTotalt());
+                    System.out.println("Antall slanger: " + s4.getTerning().getSlangerTotalt());
                     System.out.println("--- Log ---");
                     s4.printPosisjonLog();
                     Brett.linje();

@@ -83,6 +83,7 @@ public class Brett {
             if (kast == 6) {
                 System.out.println("Du kastet 6 og kan fortsette å spille!");
                 spiller.setBackToStart(false);
+                spiller.getTerning().setSekserePaaRad(0);
 
             // Kaster de noe annet enn 6, blir det neste sin tur
             } else {
@@ -104,8 +105,11 @@ public class Brett {
         }
 
         // Kode for helt vanlig kast.
-        setpos(spiller.getId(), kast);
-        System.out.println(spiller.getNavn() + " kastet " + kast + ". " + spiller.getNavn() + " står nå i rute " + (spiller.getPosisjon() + 1) + ".");
+        if(!setpos(spiller.getId(), kast)) {
+            System.out.println(spiller.getNavn() + " kastet " + kast + ". " +
+                    spiller.getNavn() + " står nå i rute " + (spiller.getPosisjon() + 1) + ".");
+        } // Hvis de lander på stige/slange tar setpos() seg av utskrivningen
+
         harVunnet();
         if (kast == 6) {
             System.out.println("!! Du får kaste igjen!");
@@ -129,13 +133,38 @@ public class Brett {
     // Endrer posisjonen til en spiller, men sjekker også om de har overgått 100.
     // Da blir de sendt tilbake like mange som de gikk over :))
     // JA jeg vet det står i oppgaven at ingenting skal skje. Men jeg liker dette bedre.
-    public void setpos(int id, int terningResultat) {
+    public boolean setpos(int id, int terningResultat) {
         Spiller spiller = spillerListe.get(id);
         int nyPosisjon = spiller.getPosisjon() + terningResultat;
         if (nyPosisjon > 99) {
             nyPosisjon = 99 - (nyPosisjon%99);
         }
+        if (brett.get(nyPosisjon).erSlange()) {
+            System.out.println(spiller.getNavn() + " kastet " + spiller.getTerning().getSisteKast() + ".\n!! " +
+                    spiller.getNavn() + " landet på en slange og sklir fra " +
+                    (nyPosisjon + 1) + " til " + (brett.get(nyPosisjon).getSlangeTil() + 1) + ".");
+            spiller.setPosisjon(brett.get(nyPosisjon).getSlangeTil());
+            spiller.getTerning().incSlangerTotalt();
+            return true;
+        } else if (brett.get(nyPosisjon).erStige()) {
+            System.out.println(spiller.getNavn() + " kastet " + spiller.getTerning().getSisteKast() + ".\n!! " +
+                    spiller.getNavn() + " landet på en stige og klatrer fra " +
+                    (nyPosisjon + 1) + " til " + (brett.get(nyPosisjon).getStigeTil() + 1) + ".");
+            spiller.setPosisjon(brett.get(nyPosisjon).getStigeTil());
+            spiller.getTerning().incStigerTotalt();
+            return true;
+        }
         spiller.setPosisjon(nyPosisjon);
+        return false;
+    }
+
+    public void lagStige(int id, int stigeTil) {
+        brett.get(id).setErStige(true);
+        brett.get(id).setStigeTil(stigeTil);
+    }
+    public void lagSlange(int id, int slangeTil) {
+        brett.get(id).setErSlange(true);
+        brett.get(id).setSlangeTil(slangeTil);
     }
 
     // Master-switch for om spillet er i gang eller ikke

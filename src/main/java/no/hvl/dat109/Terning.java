@@ -6,6 +6,8 @@ public class Terning {
     private int enereTotalt;
     private int sisteKast;
     private int totalKast;
+    private int stigerTotalt;
+    private int slangerTotalt;
 
     public Terning() {
         sekserePaaRad = 0;
@@ -13,6 +15,8 @@ public class Terning {
         enereTotalt = 0;
         sisteKast = 0;
         totalKast = 0;
+        stigerTotalt = 0;
+        slangerTotalt = 0;
     }
 
     public int trill() {
@@ -29,6 +33,7 @@ public class Terning {
         return kast;
     }
 
+    public void setSekserePaaRad(int seksere) { sekserePaaRad = seksere; }
     public int getSekserePaaRad() {
         return sekserePaaRad;
     }
@@ -44,4 +49,8 @@ public class Terning {
     public int getTotalKast() {
         return totalKast;
     }
+    public void incSlangerTotalt() {slangerTotalt++; }
+    public int getSlangerTotalt() {return slangerTotalt; }
+    public void incStigerTotalt() {stigerTotalt++; }
+    public int getStigerTotalt() {return stigerTotalt; }
 }

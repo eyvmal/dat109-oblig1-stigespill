@@ -25,4 +25,30 @@ public class BrettRute {
     public String getNavn() {
         return navn;
     }
+
+    public boolean erStige() {
+        return erStige;
+    }
+    public void setErStige(boolean erStige) {
+        this.erStige = erStige;
+    }
+    public int getStigeTil() {
+        return stigeTil;
+    }
+    public void setStigeTil(int stigeTil) {
+        this.stigeTil = stigeTil;
+    }
+    public boolean erSlange() {
+        return erSlange;
+    }
+    public void setErSlange(boolean erSlange) {
+        this.erSlange = erSlange;
+    }
+    public int getSlangeTil() {
+        return slangeTil;
+    }
+    public void setSlangeTil(int slangeTil) {
+        this.slangeTil = slangeTil;
+    }
 }
+
