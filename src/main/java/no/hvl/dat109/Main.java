@@ -48,28 +48,22 @@ public class Main {
             int input = Integer.parseInt(in.nextLine());
 
             switch (input) {
-                case 1:
-                    brett.hjelp();
-                    break;
-                case 2:
-                    brett.trillNeste();
-                    break;
-                case 3:
-                    brett.printBrett();
-                    break;
-                case 4:
+                case 1 -> brett.hjelp();
+                case 2 -> brett.trillNeste();
+                case 3 -> brett.printBrett();
+                case 4 -> {
                     brett.linje();
                     System.out.println("Spillet er avsluttet :)");
                     brett.linje();
                     brett.setSpill(false);
-                    break;
-                case 5:                             // Deilig å kunne simulere istedenfor å trille manuelt
+                }
+                case 5 -> {                             // Deilig å kunne simulere istedenfor å trille manuelt
                     while (brett.getSpill()) {
                         brett.setSimulering(true);  // Bidrar til minde spam i konsoll
                         brett.trillNeste();
                         Thread.sleep(50);
                     }
-                    break;
+                }
             }
         }
 
@@ -96,10 +90,8 @@ public class Main {
             int input = Integer.parseInt(in.nextLine());
 
             switch (input) {
-                case 0:
-                    temp = false;
-                    break;
-                case 1:
+                case 0 -> temp = false;
+                case 1 -> {
                     System.out.println("Statistikk for " + s1.getNavn());
                     System.out.println("--- Terning ---");
                     System.out.println("Enere totalt: " + s1.getTerning().getEnereTotalt());
@@ -113,8 +105,8 @@ public class Main {
                     System.out.println("--- Log ---");
                     s1.printPosisjonLog();
                     Brett.linje();
-                    break;
-                case 2:
+                }
+                case 2 -> {
                     System.out.println("Statistikk for " + s2.getNavn());
                     System.out.println("--- Terning ---");
                     System.out.println("Enere totalt: " + s2.getTerning().getEnereTotalt());
@@ -128,8 +120,8 @@ public class Main {
                     System.out.println("--- Log ---");
                     s2.printPosisjonLog();
                     Brett.linje();
-                    break;
-                case 3:
+                }
+                case 3 -> {
                     System.out.println("Statistikk for " + s3.getNavn());
                     System.out.println("--- Terning ---");
                     System.out.println("Enere totalt: " + s3.getTerning().getEnereTotalt());
@@ -143,8 +135,8 @@ public class Main {
                     System.out.println("--- Log ---");
                     s3.printPosisjonLog();
                     Brett.linje();
-                    break;
-                case 4:
+                }
+                case 4 -> {
                     System.out.println("Statistikk for " + s4.getNavn());
                     System.out.println("--- Terning ---");
                     System.out.println("Enere totalt: " + s4.getTerning().getEnereTotalt());
@@ -158,7 +150,7 @@ public class Main {
                     System.out.println("--- Log ---");
                     s4.printPosisjonLog();
                     Brett.linje();
-                    break;
+                }
             }
         }
         System.out.println("Takk for at du spilte!");
