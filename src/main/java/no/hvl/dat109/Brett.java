@@ -29,6 +29,23 @@ public class Brett {
             }
             brett.add(new BrettRute(i, navn));
         }
+
+        lagStige(1, 37);
+        lagStige(4, 14);
+        lagStige(7, 30);
+        lagStige(20, 41);
+        lagStige(27, 83);
+        lagSlange(35, 43);
+        lagSlange(50, 66);
+        lagStige(70, 90);
+
+        lagSlange(15, 5);
+        lagSlange(46, 25);
+        lagSlange(48, 10);
+        lagSlange(61, 17);
+        lagSlange(86, 23);
+        lagSlange(91, 72);
+        lagSlange(97, 77);
     }
 
     public void printBrett() {

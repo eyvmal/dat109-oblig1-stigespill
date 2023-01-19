@@ -4,31 +4,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    private static ArrayList<Spiller> spillerListe;
-    private static Spiller s1;
-    private static Spiller s2;
-    private static Spiller s3;
-    private static Spiller s4;
-
     public static void main(String[] args) throws InterruptedException {
 
         // Setter opp et brett med 10x10
         Brett brett = new Brett();
         brett.printBrett();
-
-        brett.lagStige(0, 10);
-        brett.lagStige(1, 11);
-        brett.lagStige(2, 12);
-        brett.lagStige(3, 13);
-        brett.lagStige(4, 14);
-        brett.lagStige(5, 15);
-
-        brett.lagSlange(16, 0);
-        brett.lagSlange(17, 0);
-        brett.lagSlange(18, 0);
-        brett.lagSlange(19, 0);
-        brett.lagSlange(20, 0);
-        brett.lagSlange(21, 0);
 
         // Registrering av spillere. Den vil automatisk avslutte hvis 4 spillere er registrert
         brett.linje();
@@ -40,7 +20,7 @@ public class Main {
             Scanner in = new Scanner(System.in);
             String navn = in.nextLine();
 
-            if (navn.toLowerCase().equals("ferdig")) {
+            if (navn.equalsIgnoreCase("ferdig")) {
                 if (brett.getSpillerListe().size() < 2) {
                     System.out.println("Du må registrere minimum 2 spillere!");
                 } else
@@ -65,7 +45,7 @@ public class Main {
         while (brett.getSpill()) {
             // Tar input fra brukeren og utfører kommando ut ifra input
             Scanner in = new Scanner(System.in);
-            int input = Integer.valueOf(in.nextLine());
+            int input = Integer.parseInt(in.nextLine());
 
             switch (input) {
                 case 1:
@@ -94,11 +74,11 @@ public class Main {
         }
 
         // Lagrer spillerne lokalt for å slippe gjentagende metodekall
-        spillerListe = brett.getSpillerListe();
-        s1 = spillerListe.get(0);
-        s2 = spillerListe.get(1);
-        s3 = spillerListe.get(2);
-        s4 = spillerListe.get(3);
+        ArrayList<Spiller> spillerListe = brett.getSpillerListe();
+        Spiller s1 = spillerListe.get(0);
+        Spiller s2 = spillerListe.get(1);
+        Spiller s3 = spillerListe.get(2);
+        Spiller s4 = spillerListe.get(3);
 
         Brett.linje();
         System.out.println("Statistikk!");
@@ -113,7 +93,7 @@ public class Main {
 
         while (temp) {
             Scanner in = new Scanner(System.in);
-            int input = Integer.valueOf(in.nextLine());
+            int input = Integer.parseInt(in.nextLine());
 
             switch (input) {
                 case 0:
