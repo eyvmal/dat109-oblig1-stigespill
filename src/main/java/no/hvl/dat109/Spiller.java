@@ -3,13 +3,11 @@ package no.hvl.dat109;
 import java.util.ArrayList;
 
 public class Spiller {
-
     private int id;
     private String navn;
     private Terning terning;
     private int posisjon;
     private ArrayList<Integer> posisjonLog;
-
     private boolean backToStart;
     private int stuckVedStart;
 
@@ -23,7 +21,6 @@ public class Spiller {
         stuckVedStart = 0;
     }
 
-
     public int getId() {
         return id;
     }
@@ -33,6 +30,8 @@ public class Spiller {
     public int getPosisjon() {
         return posisjon;
     }
+
+    // "Flytter" brikken til ny posisjon.
     public void setPosisjon(int nyPosisjon) {
         posisjonLog.add(nyPosisjon);
         this.posisjon = nyPosisjon;
@@ -53,6 +52,8 @@ public class Spiller {
         stuckVedStart++;
     }
 
+    // Dette skal egentlig lagres i en database, men lagrer i en ArrayList inntil videre
+    // og printer ut under statistikken til hver spiller
     public void printPosisjonLog() {
        if (!posisjonLog.isEmpty()) {
            String log = "[";

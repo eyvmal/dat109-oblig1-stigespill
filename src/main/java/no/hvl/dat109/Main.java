@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-
     private static ArrayList<Spiller> spillerListe;
     private static Spiller s1;
     private static Spiller s2;
@@ -13,16 +12,17 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException {
 
-        // Setter opp et brett
-        Brett brett = new Brett(100);
+        // Setter opp et brett med 10x10
+        Brett brett = new Brett();
         brett.printBrett();
 
-        // Registrering av spillere. Den vil automatisk avslutte hvis 4 spillere registrerer seg
+        // Registrering av spillere. Den vil automatisk avslutte hvis 4 spillere er registrert
         brett.linje();
         System.out.println("Skriv inn navn på spillere. Maks 4!");
         System.out.println("Skriv 'ferdig' når alle er registrert.");
 
         while(brett.getSpillerListe().size() < 4) {
+            // Tar input fra brukeren og oppretter nye spillere med input som navn
             Scanner in = new Scanner(System.in);
             String navn = in.nextLine();
 
@@ -30,6 +30,8 @@ public class Main {
                 if (brett.getSpillerListe().size() < 2) {
                     System.out.println("Du må registrere minimum 2 spillere!");
                 } else
+                    //  For å opprette dummy spiller. Er for å hindre krasj
+                    // ved utskrift av statistikk på slutten av spillet :)
                     while(brett.getSpillerListe().size() < 4) {
                         brett.opprettDummy();
                     }
@@ -47,6 +49,7 @@ public class Main {
         brett.linje();
 
         while (brett.getSpill()) {
+            // Tar input fra brukeren og utfører kommando ut ifra input
             Scanner in = new Scanner(System.in);
             int input = Integer.valueOf(in.nextLine());
 
@@ -66,10 +69,9 @@ public class Main {
                     brett.linje();
                     brett.setSpill(false);
                     break;
-                case 5:
+                case 5:                             // Deilig å kunne simulere istedenfor å trille manuelt
                     while (brett.getSpill()) {
-                        // Dropper å si hvem som er nestemann i køen. Mindre spam i konsoll
-                        brett.setSimulering(true);
+                        brett.setSimulering(true);  // Bidrar til minde spam i konsoll
                         brett.trillNeste();
                         Thread.sleep(50);
                     }

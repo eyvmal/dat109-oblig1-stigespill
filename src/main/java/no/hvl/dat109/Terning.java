@@ -1,7 +1,6 @@
 package no.hvl.dat109;
 
 public class Terning {
-
     private int sekserePaaRad;
     private int seksereTotalt;
     private int enereTotalt;
@@ -17,7 +16,7 @@ public class Terning {
     }
 
     public int trill() {
-        int kast = (int)Math.floor(Math.random()*6 + 1);
+        int kast = (int)Math.floor(Math.random() * 6 + 1);    // Genererer et tall mellom 1 og 6
         sisteKast = kast;
         totalKast++;
 

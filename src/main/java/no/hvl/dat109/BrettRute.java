@@ -5,10 +5,10 @@ import java.util.ArrayList;
 public class BrettRute {
     private int nr;
     private String navn;
-    private boolean erStige;                //Sjekke om ruten er en stige
-    private int stigeTil;                   //Hvor stigen går til
-    private boolean erSlange;               //Sjekke om ruten er en slange
-    private int slangeTil;                  //Hvor slangen går til
+    private boolean erStige;    //Sjekke om ruten er en stige
+    private int stigeTil;       //Hvor stigen går til
+    private boolean erSlange;   //Sjekke om ruten er en slange
+    private int slangeTil;      //Hvor slangen går til
 
     public BrettRute(int nr, String navn) {
         this.nr = nr;
@@ -25,5 +25,4 @@ public class BrettRute {
     public String getNavn() {
         return navn;
     }
-
 }
