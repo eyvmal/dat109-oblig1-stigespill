@@ -24,9 +24,8 @@ public class Brett {
                 navn = "00" + i + " ";
             } else if (i < 100) {
                 navn = "0" + i + " ";
-            } else if (i < 1000) {
-                navn = i + " ";
-            }
+            } else navn = i + "";
+
             brett.add(new BrettRute(i, navn));
         }
 
@@ -214,18 +213,18 @@ public class Brett {
     // Utskrift-metoder
     public void printStiger() {
         System.out.print("Stiger: ");
-        for (int i = 0; i < brett.size(); i++) {
-            if (brett.get(i).erStige()) {
-                System.out.print(brett.get(i).getNr() + "->" + (brett.get(i).getStigeTil() + 1) + " ");
+        for (BrettRute brettRute : brett) {
+            if (brettRute.erStige()) {
+                System.out.print(brettRute.getNr() + "->" + (brettRute.getStigeTil() + 1) + " ");
             }
         }
         System.out.println();
     }
     public void printSlanger() {
         System.out.print("Slanger: ");
-        for (int i = 0; i < brett.size(); i++) {
-            if (brett.get(i).erSlange()) {
-                System.out.print(brett.get(i).getNr() + "->" + (brett.get(i).getSlangeTil() + 1) + " ");
+        for (BrettRute brettRute : brett) {
+            if (brettRute.erSlange()) {
+                System.out.print(brettRute.getNr() + "->" + (brettRute.getSlangeTil() + 1) + " ");
             }
         }
         System.out.println();
