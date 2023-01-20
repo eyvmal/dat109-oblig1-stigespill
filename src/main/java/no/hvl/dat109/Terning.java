@@ -19,18 +19,17 @@ public class Terning {
         slangerTotalt = 0;
     }
 
-    public int trill() {
-        int kast = (int)Math.floor(Math.random() * 6 + 1);    // Genererer et tall mellom 1 og 6
-        sisteKast = kast;
+    public int trill(int enTilSeks) {
+        sisteKast = enTilSeks;
         totalKast++;
 
-        if (kast == 6) {
+        if (enTilSeks == 6) {
             seksereTotalt++;
             sekserePaaRad++;
         } else sekserePaaRad = 0;
 
-        if (kast == 1) enereTotalt++;
-        return kast;
+        if (enTilSeks == 1) enereTotalt++;
+        return enTilSeks;
     }
 
     public void setSekserePaaRad(int seksere) { sekserePaaRad = seksere; }

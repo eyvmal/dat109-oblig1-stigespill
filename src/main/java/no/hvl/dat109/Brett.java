@@ -101,7 +101,7 @@ public class Brett {
     // Generell trille-metode -- Mulig den kan optimaliseres litt, men funker...
     public void trillNeste() {
         Spiller spiller = spillerListe.get(hvemSinTur%antallSpillere);
-        int kast = spiller.getTerning().trill();
+        int kast = spiller.getTerning().trill(enTilSeks());
 
         // Sjekker om spilleren er blitt sendt tilbake til start pga for mange 6ere
         if (spiller.getBackToStart()) {
@@ -144,6 +144,10 @@ public class Brett {
             if (!simulering)
                 System.out.println(spillerListe.get(hvemSinTur%antallSpillere).getNavn() + " er nestemann!");
         }
+    }
+
+    private int enTilSeks() {
+        return (int)Math.floor(Math.random() * 6 + 1);    // Genererer et tall mellom 1 og 6
     }
 
     // Sjekker om noen av spillerene har vunnet. Denne kjører etter hver gang noen får endret posisjonen sin
