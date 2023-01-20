@@ -54,7 +54,7 @@ public class Spiller {
 
     // Dette skal egentlig lagres i en database, men lagrer i en ArrayList inntil videre
     // og printer ut under statistikken til hver spiller
-    public void printPosisjonLog() {
+    public String printPosisjonLog() {
        if (!posisjonLog.isEmpty()) {
            String log = "[";
            for (int i = 0; i < posisjonLog.size() - 1; i++) {
@@ -62,7 +62,8 @@ public class Spiller {
            }
            log += (posisjonLog.get(posisjonLog.size() - 1) + 1) + "]";
 
-           System.out.println(log);
+           return log;
        }
+       return "Ingen posisjonsdata";
     }
 }

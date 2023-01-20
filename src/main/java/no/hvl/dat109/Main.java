@@ -102,7 +102,7 @@ public class Main {
                     System.out.println("Antall stiger: " + s1.getTerning().getStigerTotalt());
                     System.out.println("Antall slanger: " + s1.getTerning().getSlangerTotalt());
                     System.out.println("--- Log ---");
-                    s1.printPosisjonLog();
+                    System.out.println(s1.printPosisjonLog());
                     Brett.linje();
                 }
                 case 2 -> {
@@ -117,7 +117,7 @@ public class Main {
                     System.out.println("Antall stiger: " + s2.getTerning().getStigerTotalt());
                     System.out.println("Antall slanger: " + s2.getTerning().getSlangerTotalt());
                     System.out.println("--- Log ---");
-                    s2.printPosisjonLog();
+                    System.out.println(s2.printPosisjonLog());
                     Brett.linje();
                 }
                 case 3 -> {
@@ -132,7 +132,7 @@ public class Main {
                     System.out.println("Antall stiger: " + s3.getTerning().getStigerTotalt());
                     System.out.println("Antall slanger: " + s3.getTerning().getSlangerTotalt());
                     System.out.println("--- Log ---");
-                    s3.printPosisjonLog();
+                    System.out.println(s3.printPosisjonLog());
                     Brett.linje();
                 }
                 case 4 -> {
@@ -147,7 +147,7 @@ public class Main {
                     System.out.println("Antall stiger: " + s4.getTerning().getStigerTotalt());
                     System.out.println("Antall slanger: " + s4.getTerning().getSlangerTotalt());
                     System.out.println("--- Log ---");
-                    s4.printPosisjonLog();
+                    System.out.println(s4.printPosisjonLog());
                     Brett.linje();
                 }
             }
