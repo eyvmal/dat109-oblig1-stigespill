@@ -170,14 +170,14 @@ public class Brett {
             nyPosisjon = 99 - (nyPosisjon%99);
         }
         if (brett.get(nyPosisjon).erSlange()) {
-            System.out.println(spiller.getNavn() + " kastet " + spiller.getTerning().getSisteKast() + ".\n!! " +
+            System.out.println(spiller.getNavn() + " kastet " + terningResultat + ".\n!! " +
                     spiller.getNavn() + " landet på en slange og sklir fra " +
                     (nyPosisjon + 1) + " til " + (brett.get(nyPosisjon).getSlangeTil() + 1) + ".");
             spiller.setPosisjon(brett.get(nyPosisjon).getSlangeTil());
             spiller.getTerning().incSlangerTotalt();
             return true;
         } else if (brett.get(nyPosisjon).erStige()) {
-            System.out.println(spiller.getNavn() + " kastet " + spiller.getTerning().getSisteKast() + ".\n!! " +
+            System.out.println(spiller.getNavn() + " kastet " + terningResultat + ".\n!! " +
                     spiller.getNavn() + " landet på en stige og klatrer fra " +
                     (nyPosisjon + 1) + " til " + (brett.get(nyPosisjon).getStigeTil() + 1) + ".");
             spiller.setPosisjon(brett.get(nyPosisjon).getStigeTil());
