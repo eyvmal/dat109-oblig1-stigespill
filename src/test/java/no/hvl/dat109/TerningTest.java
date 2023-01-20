@@ -15,6 +15,10 @@ class TerningTest {
         assertEquals(100, terning.getSeksereTotalt());      // Sjekker at den logger seksere
         assertEquals(0, terning.getEnereTotalt());          // Sjekker at den ikke logger enere også
         assertEquals(100, terning.getSekserePaaRad());      // Sjekker at den også legger dem til i denne listen
+        assertEquals(100, terning.getTotalKast());          // Sjekker at kast blir logget uansett tall
+
+        terning.setSekserePaaRad(0);                                 // Sjekke at sekserePaaRad kan tilbkestilles
+        assertEquals(0, terning.getSekserePaaRad());
     }
 
     @Test
@@ -26,6 +30,7 @@ class TerningTest {
         assertEquals(0, terning.getSeksereTotalt());        // Sjekker at den ikke logger femere
         assertEquals(0, terning.getEnereTotalt());
         assertEquals(0, terning.getSekserePaaRad());
+        assertEquals(100, terning.getTotalKast());          // Sjekker at kast blir logget uansett tall
     }
 
     @Test
@@ -37,6 +42,7 @@ class TerningTest {
         assertEquals(0, terning.getSeksereTotalt());        // Sjekker at den ikke logger firere
         assertEquals(0, terning.getEnereTotalt());
         assertEquals(0, terning.getSekserePaaRad());
+        assertEquals(100, terning.getTotalKast());          // Sjekker at kast blir logget uansett tall
     }
 
     @Test
@@ -48,6 +54,7 @@ class TerningTest {
         assertEquals(0, terning.getSeksereTotalt());        // Sjekker at den ikke logger treere
         assertEquals(0, terning.getEnereTotalt());
         assertEquals(0, terning.getSekserePaaRad());
+        assertEquals(100, terning.getTotalKast());          // Sjekker at kast blir logget uansett tall
     }
 
     @Test
@@ -59,6 +66,7 @@ class TerningTest {
         assertEquals(0, terning.getSeksereTotalt());        // Sjekker at den ikke logger toere
         assertEquals(0, terning.getEnereTotalt());
         assertEquals(0, terning.getSekserePaaRad());
+        assertEquals(100, terning.getTotalKast());          // Sjekker at kast blir logget uansett tall
     }
 
     @Test
@@ -70,17 +78,24 @@ class TerningTest {
         assertEquals(0, terning.getSeksereTotalt());        // Sjekker at den logger enere
         assertEquals(100, terning.getEnereTotalt());        // Men ikke seksere også
         assertEquals(0, terning.getSekserePaaRad());
+        assertEquals(100, terning.getTotalKast());          // Sjekker at kast blir logget uansett tall
     }
 
     @Test
     void incSlangerTotalt() {
         Terning terning = new Terning();
-        terning.incStigerTotalt();
-
+        for (int i = 0; i < 17; i++) {
+            terning.incSlangerTotalt();
+        }
+        assertEquals(17, terning.getSlangerTotalt());
     }
 
     @Test
     void incStigerTotalt() {
         Terning terning = new Terning();
+        for (int i = 0; i < 17; i++) {
+            terning.incStigerTotalt();
+        }
+        assertEquals(17, terning.getStigerTotalt());
     }
 }
