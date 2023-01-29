@@ -34,8 +34,8 @@ public class Brett {
         lagStige(7, 30);
         lagStige(20, 41);
         lagStige(27, 83);
-        lagSlange(35, 43);
-        lagSlange(50, 66);
+        lagStige(35, 43);
+        lagStige(50, 66);
         lagStige(70, 90);
 
         lagSlange(15, 5);
